@@ -1,0 +1,26 @@
+<mat-toolbar>
+  <div class="for-mobile">
+    <img src="../../assets/shakespeare-mobile-nav.svg" (click)="sidenav.toggle()" alt="">
+  </div>
+  <span>Covid Tracker</span>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="side-container">
+  <mat-sidenav #sidenav mode="side" opened="false">
+    <mat-list>
+        <mat-list-item (click)="changeRoute()">
+            World Map
+        </mat-list-item>
+    </mat-list>
+    <mat-list>
+        <mat-list-item (click)="changeRoute('/statistics')">
+            Statistics
+        </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

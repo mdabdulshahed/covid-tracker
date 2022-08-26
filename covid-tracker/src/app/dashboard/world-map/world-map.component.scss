@@ -1,0 +1,53 @@
+.parent-container {
+    .map-con {
+        width: 80%;
+        margin: auto;
+        .hint {
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            text-align: end;
+        }
+        .country-info {
+            .card {
+                border: 2px solid #E5EEF9;
+                border-radius: 4px;
+                padding: 16px;
+                margin-top: 30px;
+                .data-holder {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    justify-items: center;
+                }
+                p {
+                    color: #9b9b9b;
+                    span {
+                        color: #121212;
+                        margin-left: 12px;
+                        font-weight: 500;
+                    }
+                }
+                .spinner-holder {
+                    margin: auto;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .cm-caption-container {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .data-holder {
+        display: flex !important;
+        flex-direction: column;
+    }
+    .map-con {
+        width: 90% !important;
+    }
+}

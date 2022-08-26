@@ -1,0 +1,49 @@
+<div class="parent-container">
+    <div class="map-con">
+        <p *ngIf="mapDataReady" class="hint">*Click on any country to view details</p>
+        <countries-map *ngIf="mapDataReady" [maxColor]="'red'" class="map" [data]="mapData" (chartSelect)="select($event)"></countries-map>
+        <div class="country-info">
+            <div class="card">
+                <div *ngIf="dataFetched && selectedCountryData['country']" class="data-holder">
+                    <div>
+                        <p>
+                            Continent: <span>{{ selectedCountryData['continent'] }}</span>
+                        </p>
+                        <p>
+                            Country: <span>{{ selectedCountryData['country'] }}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Active Cases: <span>{{ selectedCountryData['cases']['active'] }}</span>
+                        </p>
+                        <p>
+                            Recovered: <span>{{ selectedCountryData['cases']['recovered'] }}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Deaths: <span>{{ selectedCountryData['deaths']['total'] }}</span>
+                        </p>
+                        <p>
+                            Tests: <span>{{ selectedCountryData['tests']['total'] }}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Data: <span>{{ selectedCountryData['time'] | date }}</span>
+                        </p>
+                    </div>
+                </div>
+                <div *ngIf="dataFetched" style="text-align: center;">
+                    Click on any country to view details
+                </div>
+                <div class="spinner-holder">
+                    <div class="spinner-border text-info" *ngIf="!dataFetched" role="status">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

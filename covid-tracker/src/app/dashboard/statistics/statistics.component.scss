@@ -1,0 +1,25 @@
+.container {
+    width: 85%;
+    margin: auto;
+    margin-top: 40px;
+    border: 2px solid #E5EEF9;
+    padding: 28px;
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p {
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        .controls {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

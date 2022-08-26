@@ -1,0 +1,35 @@
+<div class="container">
+    <div echarts [options]="options" [merge]="mergeOptions" class="demo-chart">
+    </div>
+    <div class="controls bar-graph">
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input (dateInput)="dateChange($event.value)" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Select a country</mat-label>
+            <mat-select (selectionChange)="onSelectCountry($event.value)" matNativeControl required>
+                <mat-option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <p>Showing covid data of {{ selectedDate ? (selectedDate | date) : 'today\'s date' }} across {{ selectedCountry }}</p>
+    </div>
+
+    <!-- <div class="controls line chart">
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input (dateInput)="startDateChange($event.value)" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input (dateInput)="endDateChange($event.value)" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <button (click)="getHistoryBetweenTimes" *ngIf="startDate && endDate">Get Data</button>
+    </div> -->
+</div>
